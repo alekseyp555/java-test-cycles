@@ -1,6 +1,6 @@
 package ru.java.mifi.demo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class Practice {
     //Известны такие виды циклов:
@@ -19,36 +19,34 @@ public class Practice {
 //        for — цикл со счетчиком (цикл для);
 //        for each.. — цикл “для каждого…” — разновидность for для перебора коллекции элементов.
 //        while, do.. while и for можно использовать в качестве безусловных циклов.
-    @Test
-    public void WhileExample() {
-        int countDown = 10;
 
+    // Тестирование простого цикла while
+    @Test
+    public void whileExample() {
+        int countDown = 10;
         while (countDown >= 0) {
             System.out.println("До старта: " + countDown);
             countDown--;
         }
-
-        System.out.println("Поехали !");
+        System.out.println("Поехали!");
     }
 
-    //    Чтобы прервать выполнение цикла, используется оператор break.
+    // Проверка выхода из бесконечного цикла оператором break
     @Test
-    public void WhileExampleBreak() {
+    public void whileExampleBreak() {
         int count = 1;
         while (true) {
             System.out.println("Строка №" + count);
             if (count > 3) {
                 break;
             }
-            count++; // Без наращивания цикл будет выполняться вечно
+            count++;
         }
     }
 
-    //    Цикл do..while
-//В отличие от while, значение expression будет вычисляться после каждой итерации.
-//Если результатом выражения будет true, в очередной раз выполнится тело цикла — statement(s) (как минимум раз).
+    // Простое тестирование do-while
     @Test
-    public void DoWhileExample() {
+    public void doWhileExample() {
         int count = 1;
         do {
             System.out.println("count = " + count);
@@ -56,34 +54,31 @@ public class Practice {
         } while (count < 11);
     }
 
-    //    Цикл for
+    // Проверка стандартного цикла for
     @Test
-    public void ForExample() {
+    public void forExample() {
         for (int i = 1; i < 6; i++) {
             System.out.println("Строка №" + i);
         }
     }
 
-    //    Цикл for each
-//    Этот цикл Java — разновидность цикла for для итерации коллекций и массивов.
+    // Итерация массива строк с использованием foreach
     @Test
-    public void ForEachExample() {
-        String[] daysOfWeek =
-                {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+    public void forEachExample() {
+        String[] daysOfWeek = {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
         for (String dayOfWeek : daysOfWeek) {
             System.out.println(dayOfWeek);
         }
     }
 
-
+    // Пример умножения в цикле
     @Test
     public void multiplyExample() {
         int countDown = 10;
-
         while (countDown >= 0) {
             int multiply = countDown * 3;
-            countDown--;
             System.out.println(multiply);
+            countDown--;
         }
     }
 }
